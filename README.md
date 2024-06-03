@@ -56,8 +56,6 @@ SECRET=your_jwt_secret
 ```
 ### 4. Running with Docker Compose
 
-You might have to change the line endings of ./prisma/init-db.sh
-
 ```bash
 docker-compose up --build
 ```
