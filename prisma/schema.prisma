@@ -1,0 +1,58 @@
+generator client {
+  provider = "prisma-client-js"
+  previewFeatures = ["fullTextSearch"]
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Dealership {
+  dealershipId     String       @id @default(uuid())
+  name             String
+  address          String
+  parentDealership Dealership?  @relation("SubDealerships", fields: [parentDealershipId], references: [dealershipId])
+  parentDealershipId String?
+  subDealerships   Dealership[] @relation("SubDealerships")
+  vehicles         Vehicle[]
+  customers        Customer[]
+  sales            Sale[]
+}
+
+model Vehicle {
+  vehicleId     String      @id @default(uuid())
+  make          String
+  model         String
+  year          Int
+  dealership    Dealership  @relation(fields: [dealershipId], references: [dealershipId])
+  dealershipId  String
+  sales         Sale[]
+
+  @@index([make, model, year])
+}
+
+model Customer {
+  customerId    String      @id @default(uuid())
+  firstName     String
+  lastName      String
+  email         String      @unique
+  phone         String
+  dealership    Dealership  @relation(fields: [dealershipId], references: [dealershipId])
+  dealershipId  String
+  sales         Sale[]
+
+  @@index([lastName])
+}
+
+model Sale {
+  saleId        String      @id @default(uuid())
+  date          DateTime
+  purchaseNetAmount Float
+  vehicle       Vehicle     @relation(fields: [vehicleId], references: [vehicleId])
+  vehicleId     String
+  customer      Customer    @relation(fields: [customerId], references: [customerId])
+  customerId    String
+  dealership    Dealership  @relation(fields: [dealershipId], references: [dealershipId])
+  dealershipId  String
+}
