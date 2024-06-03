@@ -39,7 +39,7 @@ The amount of work with Prisma and type-graphql is acceptable.
 
 ```bash
 git clone git@github.com:Ansaal/dms-api.git
-cd dms
+cd dms-api
 ```
 
 ### 2. Install dependencies
