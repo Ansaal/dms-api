@@ -54,68 +54,7 @@ Modify the `.env` file in the root directory to set your secret
 ```
 SECRET=your_jwt_secret
 ```
-
-### 4. Set up the database
-
-#### Using Docker
-
-If you prefer to use Docker, follow these steps:
-
-1. Ensure Docker is running.
-
-2. Start the database container:
-
-   ```bash
-   docker-compose up -d db
-   ```
-
-3. Run the Prisma migrations to set up the database schema:
-
-   ```bash
-   npx prisma migrate dev
-   ```
-
-4. Seed the database with initial data:
-
-   ```bash
-   docker-compose exec service npm run seed
-   ```
-
-#### Without Docker
-
-If you prefer to set up the database manually, follow these steps:
-
-1. Create a PostgreSQL database and user with the credentials specified in the `.env` file.
-
-2. Run the Prisma migrations to set up the database schema:
-
-   ```bash
-   npx prisma migrate dev
-   ```
-
-3. Seed the database with initial data:
-
-   ```bash
-   npm run seed
-   ```
-
-### 5. Start the development server
-
-```bash
-npm run start:dev
-```
-
-The development server should now be running at `http://localhost:3000`.
-
-## Running with Docker Compose
-
-To run the entire application stack with Docker Compose, follow these steps:
-
-### 1. Build and start the containers
-
-```bash
-docker-compose up --build
-```
+### 4. Running with Docker Compose
 
 This will start the following services:
 
@@ -124,7 +63,11 @@ This will start the following services:
 
 ### 2. Access the application
 
-The application should now be running at `http://localhost:3000`.
+The application should now be running at `http://localhost:3000`.  
+If you want to start the development-server, shutdown the service docker container and run 
+```bash
+npm run start:dev
+```
 
 ## GraphQL API
 

@@ -7,7 +7,7 @@ services:
       POSTGRES_USER: devuser
       POSTGRES_PASSWORD: devpassword
     ports:
-      - "5435:5432"
+      - "5432:5432"
     volumes:
       - pgdata:/var/lib/postgresql/data
       - ./prisma/generate-test-data.sql:/docker-entrypoint-initdb.d/generate-test-data.sql
