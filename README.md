@@ -76,6 +76,8 @@ npm run start:dev
 ## GraphQL API
 
 The GraphQL API is available at `/v1/graphql`. You can use tools like [GraphQL Playground](https://github.com/prisma-labs/graphql-playground) or [Insomnia](https://insomnia.rest/) to interact with the API.
+There is also a GraphQL Playground accessible on http://localhost:3000/v1/graphql
+
 You will need to set an Authorization header with a Bearer token. The token can be optained here:
 http://localhost:3000/auth/{dealershipId}
 The dealershipId is found in the database. For the provided test-data it would be 9af0e960-bd54-4b8c-bb41-afe36f7322b0
@@ -86,7 +88,6 @@ Example:
   "Authorization":"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkZWFsZXJzaGlwSWQiOiI5YWYwZTk2MC1iZDU0LTRiOGMtYmI0MS1hZmUzNmY3MzIyYjAiLCJpYXQiOjE3MTczMDcxMDQsImV4cCI6MTcxOTg5OTEwNH0.Nin4m0NxpoMLmdY2KvAIxUYLDFtmO2S7gRpha1ipSTI"
 }
 ```
-
 
 ## Testing
 
